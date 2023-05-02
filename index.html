@@ -1,9 +1,5 @@
 <!doctype html>
 <html>
-	<style>
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap');
-</style> 
-	
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -12,7 +8,7 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/numa.css" id="theme">  <!-- numa.css -->
+		<link rel="stylesheet" href="dist/theme/numa.css" id="theme">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
@@ -25,7 +21,6 @@
                 <!-- Use external markdown resource, separate slides by three newlines; vertical slides by two newlines -->
 
 				<!-- COLONNE 1-->
-				<h5> mercredi 3 mai 2023 - Lycée Léonard de Vinci </h5>
 			<section>
 
 				<section data-markdown data-separator="---">
@@ -33,7 +28,8 @@
 ### comment faire mentir les cartes ?
 
 
-#### Emmanuel Bourassin
+##### mercredi 3 mai 2023 
+##### Lycée Léonard de Vinci
 				</section>
 			</section>
 
@@ -43,22 +39,24 @@
 				<h6> Qui suis-je ? </h6>
 
 				<section data-markdown data-separator="---">
-## Emmanuel Bourassin
-
-etude, métier;
-
+### Emmanuel Bourassin    
+  
+##### ingénieur en _géomatique_ et _télédétection_ appliquées à l'environnement
 ---
-Ce que je fais comme genre de cartes
-### Géomatique
-
-### Télédétection
-
-### Ingénieur en cartographie
-
-### Océanographie
-
+![carte IGN Monistrol](img/IGN_1.png)
 ---
-Et j'essaie, au maximum de ne pas faire mentir les cartes que je dessine.
+![Carte Shom Pte du Raz](img/SHOM_1.png)
+---
+![Carte Shom non hydro](img/SHOM_2.png)
+---
+![Carte Shom prévi océano](img/SHOM_3.png)
+---
+##### - cartographie forestière : peuplement des forêts 
+##### - cartographie “physique” : cartes marines bathymétriques
+##### - cartographie “éphémère” : prévisions océanographiques
+##### - cartographie thématique : communication sur les travaux, sur les résultats…
+---
+Et promis, j'essaie au maximum de ne pas faire mentir les cartes que je dessine.
 
 				</section>
 			</section>
@@ -71,18 +69,12 @@ Et j'essaie, au maximum de ne pas faire mentir les cartes que je dessine.
 				<section data-markdown data-separator="---">
 ## Représenter graphiquement des informations spatialisées
 ---
-Fond de carte + des informations
+#### - une création visuelle 
+#### - basée sur des données
+#### - avec un objectif précis
+---
+On va voir ensemble des exemples et ce qui mène à avoir une carte qui ment sur le fond, et sur la forme.
 
----
-C'est quoi faire mentir une carte ?
-
----
-Est-ce qu'une carte peut représenter exactement la réalité ?
-
----
-NON 
----
-Pourquoi ?
 				</section>
 			</section>
 
@@ -91,30 +83,49 @@ Pourquoi ?
 			<section>
 				<h6> Le fond de carte </h6>
 				<section data-markdown data-separator="---" data-separator-notes="~~~">
-				Le fond de carte, qu'est-ce que c'est ?
+Le fond de carte, qu'est-ce que c'est ?
 ---
-Parfois, on a des erreurs dans le tracé 
+![4 exemples de fond de carte](img/FDC.png)
 ---
-Île imaginaire pour différente raison
-
+#### On ne va pas (et on ne peut pas) collecter les données du terrain à chaque fois qu'on a besoin de faire une carte : on doit donc se baser sur des données existantes et les mettre à jour si nécessaire.
 ---
-Île de Californie : 
-
+## Exemples d'îles imaginaires
 ---
-Île de Sable : 
-
+L'Île de Californie : deux siècles d'erreur !
 ---
-Pays imaginaire : exemple : le Listenbourg
+![Île de Californie : deux exemples](img/s_Ile_Californie1.svg)
 ---
-Parfois il n'y a pas consensus sur les frontières.
-Une carte qui les représente va alors adopter un point de vue ou un autre, ou bien laisser le lecteur décider.
+![Antériorité de la presqu'île](img/s_Ile_Californie2.svg)
 ---
-
-Parfois le fond de carte est imprécis ou très imprécis.
-
-(exemple de Walpole et Matthew)
-
-
+L'Île de Sable : 
+---
+![Ile de Sable, découverte en 1878](img/s_Ile_Sable1.svg)
+---
+![Ile de Sable ](img/s_Ile_Sable2.svg)
+---
+Un pays imaginaire, est-ce un mensonge ?
+---
+![Le Listenbourg](img/s_Listenbourg.svg) 
+---
+Régulièrement, les frontières posent problème.
+---
+Le cas très particulier de l'Île des Faisans (ou Île de la Conférence):
+---
+![IGN_espana](img/s_Ile_Faisans1.svg) 
+---
+![IGN_France](img/s_Ile_Faisans2.svg) 
+---
+![Google Maps](img/s_Ile_Faisans3.svg) 
+---
+![OSM](img/s_Ile_Faisans4.svg) 
+---
+Parfois le fond de carte est imprécis.
+---
+![Walpole](img/s_Walpole.svg)
+---
+![Matthew](img/s_Matthew.svg)
+---
+![Nuages](img/s_IGN_crozet.svg)
 				</section>
 			</section>
 
@@ -123,101 +134,150 @@ Parfois le fond de carte est imprécis ou très imprécis.
             <section>
 				<h6> Le choix de la projection </h6>
 				<section data-markdown data-separator="---" data-separator-notes="~~~">
-Quand on dessine une carte, on est obligé d'appliquer une transformation mathématique pour passer d'un monde courbe (ou sphérique) à une représentation plane.
-C'est la projection. 
-Il existe des centaines de projections différentes, selon qu'on cherche à représenter le monde entier, un continent, un pays ou une région donnée.
 
+Les projections peuvent conserver les angles (conformes), les surfaces (équivalentes) mais pas les deux.
 ---
-Les projections peuvent conserver les angles, les surfaces mais pas les deux.
+![Orthographique et Albers](img/s_proj_Tissot0.svg)
 ---
-Mise à part l'astuce qui consisterait à représenter des données cartographiques uniquement sur des globes terrestres ou sur des cartes en reliefs 
+![___________template__________](img/s_proj_Tissot1.svg)
 ---
-Qu'est-ce qui déforme comment ?
+![___________template__________](img/s_proj_Tissot2.svg)
 ---
-Et qui met-on au centre du monde ?
+![___________template__________](img/s_taille_mercator.svg)
 ---
-Exemple de projection de Spilhaus
+## Et qui met-on au _centre_ du monde ?
 ---
+![___________template__________](img/s_proj_amer.svg)
+---
+![___________template__________](img/s_proj_asie.svg)
+---
+![___________template__________](img/s_Spilhaus.svg)
+---
+![___________template__________](img/s_mcarthur.svg)
+
+</section>
+			</section>
+
+<!-- COLONNE 6 Relief -->
+
+            <section>
+				<section data-markdown data-separator="---" data-separator-notes="~~~">
+## Un dernier point sur le fond de carte : le relief
+---
+![___________template__________](img/s_relief_0.svg)
+---
+![___________template__________](img/s_relief_1.svg)
+---
+![___________template__________](img/s_relief_3.svg)
+
 		</section>
 			</section>
 
-			<!-- COLONNE 6  L'information-->
+			<!-- COLONNE 7  L'information-->
 
             <section>
-				<h6> Maintenant qu'on a vu comment faire mentir un fond de carte.. </h6>
 				<section data-markdown data-separator="---" data-separator-notes="~~~">
+
+###### Et maintenant qu'on a vu comment faire mentir le fond...
+On va voir comment faire mentir la forme !
+--- 
 Et pour ça, on va s'intéresser au travail d'un homme nommé Jacques BERTIN
 ---
-Il a théorisé la sémiologie graphique 
-C'est-à-dire la traduction graphique d'une information 
----
-Alors ça normalement vous connaissez (peut-être sans le savoir)
-Par exemple cette carte répond à un ensemble de règles de la sémiologie graphique 
----
-Celle-ci aussi, mais différemment
----
+#### Il a théorisé la **sémiologie graphique**  
 
+#### C'est-à-dire la _**traduction graphique**_ d'une _**information**_ 
 ---
+#### Alors ça normalement vous connaissez (peut-être sans le savoir)
+#### C'est ce qui fait que la plupart du temps on comprend une carte sans avoir à lire en détail toute la légende.
+---
+![___________template__________](img/s_semio_1.svg)
+---
+![___________template__________](img/s_semio_theorique.svg)
+---
+![___________template__________](img/s_semio_6.svg)
+---
+![___________template__________](img/s_semio_2.svg)
+---
+![___________template__________](img/s_semio_3.svg)
+---
+![___________template__________](img/s_semio_4.svg)
+---
+![___________template__________](img/s_semio_5.svg)
 
 				</section>
 			</section>
 
-
-        <!-- COLONNE 7  Les chemins-->
-
-            <section>
-				<h6> Les chemins et les nœuds </h6>
-				<section data-markdown data-separator="---" data-separator-notes="~~~">
-
-				</section>
-			</section>
-
-        <!-- COLONNE 8  Des pixels-->
+        <!-- COLONNE 8  Les traitements statistiques -->
 			<section>
-				<h6> Des pixels </h6>
+				<h6> Les traitements statistiques </h6>
 				<section data-markdown data-separator="---" data-separator-notes="~~~">
-
+![___________template__________](img/s_usa.svg)
 ---
+![___________template__________](img/s_usa2022.svg)
+---
+![___________template__________](img/s_usa_voix.svg)
+---
+![___________template__________](img/s_elections2022.svg)
+
 		</section>
 			</section>
 
+        <!-- COLONNE 8  Les traitements statistiques -->
 			<section>
-                <h6> Place au texte </h6>
-                <section data-markdown data-separator="---" data-separator-notes="~~~">
+				<h6> </h6>
+				<section data-markdown data-separator="---" data-separator-notes="~~~">
+#### Pour finir, un petit cas concret emprunté aux cartographes Françoise Bahoken et Nicolas Lambert :
 ---
-
-
-				</section>
-			</section>
-
-			<section>
-                <h6> Questions précédentes : </h6>
-                <section data-markdown data-separator="---" data-separator-notes="~~~">
+![___________template__________](img/refug1.png)
 ---
-
-				</section>
-			</section>
-			<section>
-          <h6> Mise en page </h6>
-                <section data-markdown data-separator="---" data-separator-notes="~~~">
+![___________template__________](img/refug2.png)
 ---
+![___________template__________](img/refug3.png)
+---
+![___________template__________](img/refug4.png)
+---
+![___________template__________](img/refug5.png)
+---
+![___________template__________](img/refug6.png)
+---
+![___________template__________](img/refug7.png)
+---
+![___________template__________](img/refug8.png)
+---
+![___________template__________](img/refug9.png)
+---
+![___________template__________](img/refug10.png)
+---
+![___________template__________](img/refug11.png)
+---
+![___________template__________](img/refug12.png)
+---
+![___________template__________](img/refug13.png)
+---
+![___________template__________](img/refug14.png)
 
+		</section>
+			</section>
+        <!-- COLONNE 10 : conclusion -->
+		<section> 
+				<h6> Conclusion </h6>
+				<section data-markdown data-separator="---" data-separator-notes="~~~">
+#### Méfiez-vous des cartes comme de n'importe quelle image qu'on vous présente !
 
+#### Posez-vous ces quelques questions : qui en est l'auteur ? dans quel but la carte a-t-elle été réalisée ? d'où viennent les données ? de quand datent-elles ? 
+---
+Merci pour votre attention :-)
 				</section>
 			</section>
 
-        <section>
-          <h6> Merci </h6>
-                <section data-markdown data-separator="---" data-separator-notes="~~~">
-
-				</section>
-				
-				
-			</section>
 
 			<section>
 				<section data-markdown data-separator="---" data-separator-notes="~~~">
-## Crédits
+### Sources et ressources utiles :
+#### Françoise Bahoken, Jacques Bertin, Clara De Alberto, Jean-Christophe Fichet, Jules Grandin, Nicolas Lambert, Christine Zanin, 
+##### Jean-Christophe Victor et Émilie Aubry « Le Dessous des cartes », 
+##### neocarto.hypotheses.org ; sciencespo.fr/cartographie ; cartolycee.net ; cours-fad-public.ensg.eu
+
 
 
 
